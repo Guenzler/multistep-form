@@ -15,15 +15,17 @@ export const School = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label htmlFor="school">Name of School</label>
-        <input {...register("school")} id="school" />
-      </div>
-      <div>
-        <label htmlFor="city">City</label>
-        <input {...register("city")} id="city" />
-      </div>
-      <button type="submit">Next</button>
+      <ul>
+        <li role="presentation">
+          <label htmlFor="school" className="standard-label">Name der Schule*</label>
+          <input {...register("school")} id="school" required/>
+        </li>
+        <li role="presentation" className="standard-label">
+          <label htmlFor="city">Stadt*</label>
+          <input {...register("city")} id="city" required/>
+        </li>
+        <button type="submit">Next</button>
+      </ul>
     </form>
   );
 };
