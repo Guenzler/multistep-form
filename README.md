@@ -4,5 +4,5 @@
 Create a custom, multistep form with React
 
 ## Motivation
-Gain some more experience with react, learn about using vite, the context hook in react and about react-hook-form
+Gain  more experience with React, learn about using Vite, about the context hook in react and react-hook-form
 
