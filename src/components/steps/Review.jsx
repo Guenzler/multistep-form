@@ -1,5 +1,5 @@
-// src/steps/Review.js
-import { useFormContext } from "./FormProvider";
+// src/component/steps/Review.jsx
+import { useFormContext } from "../FormProvider";
 
 export const Review = () => {
   const { formData } = useFormContext();

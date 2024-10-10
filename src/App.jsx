@@ -8,10 +8,10 @@ function App() {
 
   return (
     <div className="App">
-    <FormProvider>
-      <Router />
-    </FormProvider>
-  </div>
+      <FormProvider>
+        <Router />
+      </FormProvider>
+    </div>
   )
 }
 

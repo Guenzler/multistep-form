@@ -1,4 +1,4 @@
-// src/FormProvider.js
+// src/FormProvider.jsx
 import { createContext, useContext, useState } from "react";
 
 const FormContext = createContext();
