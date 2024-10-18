@@ -1,40 +1,57 @@
 // src/component/steps/Teachers.jsx
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormContext } from "../FormProvider";
 
 export const Teachers = () => {
-    const { register, handleSubmit } = useForm();
+    const { handleSubmit, control } = useForm();
     const { updateFormData } = useFormContext();
+    const [teacher, setTeacher] = useState([{ id: Date.now() }]); // Startet mit einer Person
     const navigate = useNavigate();
 
+    const addTeacher = () => {
+        setTeacher([...teacher, { id: Date.now() }]); // Fügt eine weitere Person hinzu
+    };
+
     const onSubmit = (data) => {
+        console.log(data);
         updateFormData(data);
-        navigate("/pupil");
+        navigate("/pupil"); 
     };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <ul>
-                <li role="presentation">
-                    <label htmlFor="betreuer-name" className="standard-label">Betreuer Nachname*</label>
-                    <input {...register("betreuer")} id="betreuer" required />
-                </li>
-                <li role="presentation">
-                    <label htmlFor="betreuer-vorname" className="standard-label">Vorname*</label>
-                    <input {...register("kind-of-school")} id="kind-of-school" required />
-                </li>
-                <li role="presentation" className="standard-label">
-                    <label htmlFor="betreuer-email">Email*</label>
-                    <input {...register("betreuer-email")} id="betreuer-email" required />
-                </li>
-                <li role="presentation" className="standard-label">
-                    <label htmlFor="betreuer-mobil">Mobilnr.*</label>
-                    <input {...register("betreuer-mobil")} id="betreuer-mobil" required />
-                </li>
+            {teacher.map((teacher, index) => (
+                <div key={teacher.id}>
+                    <h3>Betreuer {index + 1}</h3>
+                    <ul>
+                        <li role="presentation">
+                            <label className="standard-label">Betreuer Nachname*</label>
+                            <Controller
+                                name={`betreuer${index}.name`}
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => <input {...field} />}
+                            />
+                        </li>
+                        <li role="presentation">
+                            <label htmlFor="betreuer-vorname" className="standard-label">Vorname*</label>
+                            <Controller
+                                name={`betreuer${index}.vorname`}
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => <input {...field} />}
+                            />
+                        </li>
+                    </ul>
+                </div>
+            ))}
+            <button type="button" onClick={addTeacher}>
+                Weiteren Betreuer hinzufügen
+            </button>
+            <button type="submit">Next</button>
 
-                <button type="submit">Next</button>
-            </ul>
-        </form>
+        </form >
     );
 };
