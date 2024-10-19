@@ -1,0 +1,17 @@
+.twoInputs {
+    display: flex;
+}
+
+.inputOne {
+    flex: 1 0 50px;
+    margin-right: 8px;
+}
+
+.inputTwo {
+    flex-grow: 3;
+}
+
+.inputThree {
+    flex: 1 0 50px;
+    margin-left: 8px;
+}

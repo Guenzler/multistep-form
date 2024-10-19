@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormContext } from "../FormProvider";
+import "./teachers.css"
 
 export const Teachers = () => {
     const { handleSubmit, control } = useForm();
@@ -17,40 +18,56 @@ export const Teachers = () => {
     const onSubmit = (data) => {
         console.log(data);
         updateFormData(data);
-        navigate("/pupil"); 
+        navigate("/pupil");
     };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             {teacher.map((teacher, index) => (
-                <div key={teacher.id}>
+                <div key={teacher.id} className="singleTeacher">
                     <h3>Betreuer {index + 1}</h3>
                     <ul>
                         <li role="presentation">
-                            <label className="standard-label">Betreuer Nachname*</label>
-                            <Controller
-                                name={`betreuer${index}.name`}
-                                control={control}
-                                defaultValue=""
-                                render={({ field }) => <input {...field} />}
-                            />
+                            <div className="twoInputs">
+                                <div className="inputOneT">
+                                    <label className="standard-label" htmlFor={`betreuer${index}Nachname`}>Nachname*</label>
+                                    <Controller
+                                        name={`betreuer${index}.name`}
+                                        control={control}
+                                        defaultValue=""
+                                        render={({ field }) => <input {...field} id={`betreuer${index}Nachname`} required />}
+                                    />
+                                </div>
+                                <div className="inputTwoT">
+                                    <label className="standard-label" htmlFor={`betreuer${index}Vorname`}>Vorname*</label>
+                                    <Controller
+                                        name={`betreuer${index}.vorname`}
+                                        control={control}
+                                        defaultValue=""
+                                        render={({ field }) => <input {...field} id={`betreuer${index}Vorname`} required />}
+                                    />
+                                </div>
+                            </div>
                         </li>
                         <li role="presentation">
-                            <label htmlFor="betreuer-vorname" className="standard-label">Vorname*</label>
+                            <label className="standard-label" htmlFor={`betreuer${index}Email`}>Email*</label>
                             <Controller
-                                name={`betreuer${index}.vorname`}
+                                name={`betreuer${index}.email`}
                                 control={control}
                                 defaultValue=""
-                                render={({ field }) => <input {...field} />}
+                                render={({ field }) => <input {...field} id={`betreuer${index}Email`} required />}
                             />
                         </li>
                     </ul>
                 </div>
             ))}
-            <button type="button" onClick={addTeacher}>
-                Weiteren Betreuer hinzufügen
-            </button>
-            <button type="submit">Next</button>
+            <p className="addTeacher">
+                <button type="button" onClick={addTeacher}>
+                    +
+                </button>
+                Betreuer hinzufügen
+            </p>
+            <button type="submit">Weiter</button>
 
         </form >
     );

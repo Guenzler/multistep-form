@@ -15,16 +15,14 @@ export const TeamInfo = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <p>Hier könnt ihr euer Team anmelden. Wir freuen uns auf eure Anmeldung!</p>
+      <p>Bitte alle mit * gekennzeichneten Felder ausfüllen.</p>
       <ul>
         <li role="presentation">
           <label htmlFor="teamname" className="standard-label">Teamname*</label>
           <input {...register("teamname")} id="teamname" required />
         </li>
-        <li role="presentation" className="standard-label">
-          <label htmlFor="numberMembers">Anzahl Teamitglieder*</label>
-          <input {...register("numberMembers")} id="numberMembers" required />
-        </li>
-        <button type="submit">Next</button>
+        <button type="submit">Weiter</button>
       </ul>
     </form>
   );
