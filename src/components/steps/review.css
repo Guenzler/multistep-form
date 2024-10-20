@@ -1,0 +1,18 @@
+.App {
+    text-align: left;
+}
+
+table{
+    border-spacing: 0px;
+}
+
+td {
+    padding: 5px 10px;
+    border: 0px;
+    background-color: aliceblue;
+}
+
+#sendData {
+    margin-top: 20px;
+    font-weight: 500;
+}
