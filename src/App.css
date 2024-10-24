@@ -9,6 +9,8 @@
   margin: 0 auto;
   padding: 25px;
   max-width: 560px;
-  background-color: rgb(227, 241, 253);
-  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  position: relative;
+  z-index: 100;
 }

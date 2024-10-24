@@ -5,7 +5,7 @@ import { keyLabels } from "./keylables.jsx"
 
 export const Review = () => {
   const { formData } = useFormContext();
- 
+
   // Function to extract and sort dynamic keys (like "betreuer0", "betreuer1", etc.)
   const getDynamicKeys = (prefix) => {
     return Object.keys(formData).filter(key => key.startsWith(prefix)).sort(); //returns an array
