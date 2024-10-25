@@ -5,7 +5,8 @@
 /**********************************/
 
 .page-background {
-    position: relative;
+    position: fixed;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
     background: rgb(62, 151, 196);
@@ -23,7 +24,7 @@
     transform: scale(0) rotate(0deg) translate(-50%, -50%);
     -webkit-animation: rahmen 60s ease-in forwards infinite;
     animation: rahmen 100s ease-in forwards infinite;
-    z-index: 2;
+    z-index: 1;
 }
 
 .rahmen:nth-child(2n) {

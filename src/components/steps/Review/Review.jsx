@@ -1,5 +1,5 @@
 // src/component/steps/Review.jsx
-import { useFormContext } from "../FormProvider";
+import { useFormContext } from "../../FormProvider";
 import "./review.css"
 import { keyLabels } from "./keylables.jsx"
 
@@ -12,7 +12,7 @@ export const Review = () => {
   };
 
   // Prepare the fixed keys
-  const fixedKeys = ["teamname", "school", "kind-of-school", "plz", "city", "street", "street-nr"];
+  const fixedKeys = ["teamname", "school", "kind-of-school"];
 
   // Get dynamic betreuer and schueler keys
   const betreuerKeys = getDynamicKeys("betreuer");
@@ -49,8 +49,8 @@ export const Review = () => {
 
   return (
     <div>
-      <h2>Angaben überprüfen</h2>
-      <p>Wenn alle Angaben so stimmen, dann mit dem Button unten absenden!</p>
+      <h1>Angaben überprüfen</h1>
+      <p>Wenn alle Angaben so stimmen, dann klickt auf den 'Senden' Button und meldet euch an!</p>
       <table>
         <tbody>
           {/* Render fixed keys */}

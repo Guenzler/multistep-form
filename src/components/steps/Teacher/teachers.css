@@ -1,16 +1,12 @@
-.singlePupil {
+.singleTeacher {
     margin-bottom: 25px;
 }
 
-.singlePupil h3 {
-    margin-bottom: 0;
-}
-
-.addPupil {
+.addTeacher {
     background-color: rgb(209, 227, 255);
     margin-bottom: 30px;
 }
-.addPupil button {
+.addTeacher button {
     padding: 0px 10px 4px;
     margin-right: 15px;
     font-weight: 800;
@@ -29,12 +25,6 @@
 .inputTwoT {
     flex-grow: 1;
 }
-
-#errorMsg {
- color: red;
- font-weight: 500;
-}
-
 
 @media all and (max-width: 500px) {
     .twoInputs {

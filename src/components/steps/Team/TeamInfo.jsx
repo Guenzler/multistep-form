@@ -1,7 +1,7 @@
 // src/components/TeamInfo.jsx
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
-import { useFormContext } from "../FormProvider";
+import { useFormContext } from "../../FormProvider";
 
 export const TeamInfo = () => {
   const { register, handleSubmit } = useForm();
@@ -17,15 +17,11 @@ export const TeamInfo = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Anmeldung</h1>
       <p>Wie heisst euer Team?</p>
-      <ul>
-        <li role="presentation">
           <div className="inputFieldWrapper">
             <input {...register("teamname")} id="teamname" required />
             <label htmlFor="teamname" className="standard-label">Teamname*</label>
           </div>
-        </li>
         <button type="submit">Weiter</button>
-      </ul>
     </form>
   );
 };
