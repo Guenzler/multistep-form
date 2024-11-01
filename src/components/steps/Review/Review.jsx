@@ -12,7 +12,7 @@ export const Review = () => {
   };
 
   // Prepare the fixed keys
-  const fixedKeys = ["teamname", "school", "kind-of-school"];
+  const fixedKeys = ["teamname", "school", "schulform"];
 
   // Get dynamic betreuer and schueler keys
   const betreuerKeys = getDynamicKeys("betreuer");
@@ -65,14 +65,19 @@ export const Review = () => {
             <td></td>
           </tr>
           {/* Render dynamic betreuer entries */}
-          {betreuerKeys.map(key => (
-            Object.keys(formData[key]).map(subKey => (
-              <tr key={key + subKey}>
-                <td>{getLabel(key, subKey)}</td>
-                <td>{formData[key][subKey]}</td>
-              </tr>
-            ))
-          ))}
+          {betreuerKeys.map(key => {
+            return (
+              Object.keys(formData[key]).map(subKey => {
+                return (
+                  <tr key={key + subKey}>
+                    <td>{getLabel(key, subKey)}</td>
+                    <td>{formData[key][subKey]}</td>
+                  </tr>
+                )
+              })
+            )
+          }
+          )}
           <tr key="schueler">
             <td><h3>Teammitglieder</h3></td>
             <td></td>

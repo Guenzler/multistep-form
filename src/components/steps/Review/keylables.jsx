@@ -1,7 +1,7 @@
 export const keyLabels = {
     "teamname": "Teamname",
     "school": "Schule",
-    "kind-of-school": "Schulart",
+    "schulform": "Schulart",
     "plz": "PLZ",
     "city": "Stadt",
     "street": "Strasse",

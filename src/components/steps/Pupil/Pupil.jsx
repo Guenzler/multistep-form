@@ -53,7 +53,21 @@ export const Pupil = () => {
                                     name={`schueler${index}.name`}
                                     control={control}
                                     defaultValue=""
-                                    render={({ field }) => <input {...field} id={`schueler${index}Nachname`} required />}
+                                    rules={{
+                                        required: "Dieses Feld ist erforderlich",
+                                        pattern: {
+                                            value: /^[A-Za-zäöüÄÖÜß\s]+$/, // Regex for letters and spaces (supports German characters)
+                                            message: "Nur Buchstaben sind erlaubt"
+                                        }
+                                    }}
+                                    render={({ field, fieldState }) => (
+                                        <>
+                                            <input {...field} id={`schueler${index}Nachname`} required />
+                                            <div className="errorMsg">
+                                                {fieldState.error && <span>{fieldState.error.message}</span>}
+                                            </div>
+                                        </>
+                                    )}
                                 />
                                 <label className="standard-label" htmlFor={`schueler${index}Nachname`}>Nachname*</label>
                             </div>
@@ -64,7 +78,21 @@ export const Pupil = () => {
                                     name={`schueler${index}.vorname`}
                                     control={control}
                                     defaultValue=""
-                                    render={({ field }) => <input {...field} id={`schueler${index}Vorname`} required />}
+                                    rules={{
+                                        required: "Dieses Feld ist erforderlich",
+                                        pattern: {
+                                            value: /^[A-Za-zäöüÄÖÜß\s]+$/, // Regex for letters and spaces (supports German characters)
+                                            message: "Nur Buchstaben sind erlaubt"
+                                        }
+                                    }}
+                                    render={({ field, fieldState }) => (
+                                        <>
+                                            <input {...field} id={`schueler${index}Vorname`} required />
+                                            <div className="errorMsg">
+                                                {fieldState.error && <span>{fieldState.error.message}</span>}
+                                            </div>
+                                        </>
+                                    )}
                                 />
                                 <label className="standard-label" htmlFor={`schueler${index}Vorname`}>Vorname*</label>
                             </div>
@@ -76,7 +104,21 @@ export const Pupil = () => {
                             name={`schueler${index}.email`}
                             control={control}
                             defaultValue=""
-                            render={({ field }) => <input {...field} id={`schueler${index}Email`} required />}
+                            rules={{
+                                required: "Bitte Email-Adresse angeben",
+                                pattern: {
+                                    value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                                    message: "Bitte eine gültige Email-Adresse eingeben"
+                                }
+                            }}
+                            render={({ field, fieldState }) => (
+                                <>
+                                    <input {...field} id={`schueler${index}Email`} required />
+                                    <div className="errorMsg">
+                                        {fieldState.error && <span>{fieldState.error.message}</span>}
+                                    </div>
+                                </>
+                            )}
                         />
                         <label className="standard-label" htmlFor={`schueler${index}Email`}>Email*</label>
                     </div>
@@ -89,7 +131,7 @@ export const Pupil = () => {
                 Teammitglied hinzufügen
             </p>
             <p id="errorMsg" ref={errorRef}></p>
-            <button type="submit">Weiter</button>
+            <button type="submit" className="buttonSubmit">Weiter</button>
 
         </form >
     );

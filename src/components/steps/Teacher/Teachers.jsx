@@ -34,7 +34,21 @@ export const Teachers = () => {
                                     name={`betreuer${index}.name`}
                                     control={control}
                                     defaultValue=""
-                                    render={({ field }) => <input {...field} id={`betreuer${index}Nachname`} required />}
+                                    rules={{
+                                        required: "Dieses Feld ist erforderlich",
+                                        pattern: {
+                                            value: /^[A-Za-zäöüÄÖÜß\s]+$/, // Regex for letters and spaces (supports German characters)
+                                            message: "Nur Buchstaben sind erlaubt"
+                                        }
+                                    }}
+                                    render={({ field, fieldState }) => (
+                                        <>
+                                            <input {...field} id={`betreuer${index}Nachname`} required />
+                                            <div className="errorMsg">
+                                                {fieldState.error && <span>{fieldState.error.message}</span>}
+                                            </div>
+                                        </>
+                                    )}
                                 />
                                 <label className="standard-label" htmlFor={`betreuer${index}Nachname`}>Nachname*</label>
                             </div>
@@ -45,7 +59,21 @@ export const Teachers = () => {
                                     name={`betreuer${index}.vorname`}
                                     control={control}
                                     defaultValue=""
-                                    render={({ field }) => <input {...field} id={`betreuer${index}Vorname`} required />}
+                                    rules={{
+                                        required: "Dieses Feld ist erforderlich",
+                                        pattern: {
+                                            value: /^[A-Za-zäöüÄÖÜß\s]+$/, // Regex for letters and spaces (supports German characters)
+                                            message: "Nur Buchstaben sind erlaubt"
+                                        }
+                                    }}
+                                    render={({ field, fieldState }) => (
+                                        <>
+                                            <input {...field} id={`betreuer${index}Vorname`} required />
+                                            <div className="errorMsg">
+                                                {fieldState.error && <span>{fieldState.error.message}</span>}
+                                            </div>
+                                        </>
+                                    )}
                                 />
                                 <label className="standard-label" htmlFor={`betreuer${index}Vorname`}>Vorname*</label>
                             </div>
@@ -56,7 +84,21 @@ export const Teachers = () => {
                             name={`betreuer${index}.email`}
                             control={control}
                             defaultValue=""
-                            render={({ field }) => <input {...field} id={`betreuer${index}Email`} required />}
+                            rules={{
+                                required: "Bitte Email-Adresse angeben",
+                                pattern: {
+                                    value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                                    message: "Bitte eine gültige Email-Adresse eingeben"
+                                }
+                            }}
+                            render={({ field, fieldState }) => (
+                                <>
+                                    <input {...field} id={`betreuer${index}Email`} required />
+                                    <div className="errorMsg">
+                                        {fieldState.error && <span>{fieldState.error.message}</span>}
+                                    </div>
+                                </>
+                            )}
                         />
                         <label className="standard-label" htmlFor={`betreuer${index}Email`}>Email*</label>
                     </div>
@@ -68,7 +110,7 @@ export const Teachers = () => {
                 </button>
                 Betreuer hinzufügen
             </p>
-            <button type="submit">Weiter</button>
+            <button type="submit" className="buttonSubmit">Weiter</button>
 
         </form >
     );
