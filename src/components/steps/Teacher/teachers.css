@@ -6,6 +6,7 @@
     background-color: rgb(209, 227, 255);
     margin-bottom: 30px;
 }
+
 .addTeacher button {
     padding: 0px 10px 4px;
     margin-right: 15px;
@@ -30,8 +31,9 @@
     .twoInputs {
         flex-direction: column;
     }
+
     .inputOneT {
         flex-grow: 1;
         margin-right: 0px;
     }
-  }
+}

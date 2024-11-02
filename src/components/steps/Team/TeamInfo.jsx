@@ -31,7 +31,7 @@ export const TeamInfo = () => {
         <label htmlFor="teamname" className="standard-label">Teamname*</label>
       </div>
       <div className="errorMsg">
-      {errors.teamname && <span>{errors.teamname.message}</span>}
+        {errors.teamname && <span>{errors.teamname.message}</span>}
       </div>
       <button type="submit" className="buttonSubmit">Weiter</button>
     </form>

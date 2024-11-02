@@ -1,6 +1,6 @@
 // src/component/steps/Pupil.jsx
 import { useForm, Controller } from "react-hook-form";
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormContext } from "../../FormProvider";
 import "./pupil.css"
@@ -8,7 +8,11 @@ import "./pupil.css"
 export const Pupil = () => {
     const { handleSubmit, control } = useForm();
     const { updateFormData } = useFormContext();
-    const [pupil, setPupil] = useState([{ id: Date.now() }]); // Startet mit einer Person
+
+    /* useState pupil contains an array of pupils, initialized with one pupil.
+         Users can add more pupils.                                    */
+    const [pupil, setPupil] = useState([{ id: Date.now() }]);
+
     const navigate = useNavigate();
     const errorRef = useRef(null);
 
@@ -16,7 +20,7 @@ export const Pupil = () => {
         if (errorRef.current) {
             errorRef.current.innerText = "";
         }
-        if (pupil.length >= 6) {
+        if (pupil.length >= 4) {
             if (errorRef.current) {
                 errorRef.current.innerText = "Ein Team darf maximal sechs Teammitglieder haben";
             }
@@ -29,10 +33,9 @@ export const Pupil = () => {
         if (errorRef.current) {
             errorRef.current.innerText = "";
         }
-        console.log(data);
-        if (pupil.length < 3) {
+        if (pupil.length < 2) {
             if (errorRef.current) {
-                errorRef.current.innerText = "Ein Team muss aus mindestens drei Teammitgliedern bestehen.";
+                errorRef.current.innerText = "Ein Team muss aus mindestens zwei Teammitgliedern bestehen.";
             }
         } else {
             updateFormData(data);

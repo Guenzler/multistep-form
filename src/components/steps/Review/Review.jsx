@@ -25,6 +25,7 @@ export const Review = () => {
   };
 
   const handleSubmit = async () => {
+    console.log(formData);
 
     /********************************************
     /* serverside handling not yet implemented
@@ -50,7 +51,7 @@ export const Review = () => {
   return (
     <div>
       <h1>Angaben überprüfen</h1>
-      <p>Wenn alle Angaben so stimmen, dann klickt auf den 'Senden' Button und meldet euch an!</p>
+      <p>Wenn alle Angaben so stimmen, dann klickt auf den &apos;Senden&apos; Button und meldet euch an!</p>
       <table>
         <tbody>
           {/* Render fixed keys */}

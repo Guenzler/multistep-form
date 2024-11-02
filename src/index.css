@@ -1,3 +1,11 @@
+/****************************************************/
+/*                                                  */
+/* main styles for document:                        */
+/* styles for marggins, text, colors                */
+/* and general styles for form fields and buttons   */
+/*                                                  */
+/****************************************************/
+
 :root {
   font-family: Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -181,7 +189,7 @@ buton:focus {
   font-size: 16px;
   color: red;
   font-weight: 500;
-  line-height: 20px; 
+  line-height: 20px;
 }
 
 @media all and (max-width: 500px) {

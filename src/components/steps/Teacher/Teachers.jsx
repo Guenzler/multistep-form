@@ -1,6 +1,6 @@
 // src/component/steps/Teachers.jsx
 import { useForm, Controller } from "react-hook-form";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormContext } from "../../FormProvider";
 import "./teachers.css"
@@ -8,15 +8,18 @@ import "./teachers.css"
 export const Teachers = () => {
     const { handleSubmit, control } = useForm();
     const { updateFormData } = useFormContext();
-    const [teacher, setTeacher] = useState([{ id: Date.now() }]); // Startet mit einer Person
+
+    /* useState teacher contains an array of teachers, initialized with one teacher.
+         Users can add more teachers if necessary                                      */
+
+    const [teacher, setTeacher] = useState([{ id: Date.now() }]);
     const navigate = useNavigate();
 
     const addTeacher = () => {
-        setTeacher([...teacher, { id: Date.now() }]); // Fügt eine weitere Person hinzu
+        setTeacher([...teacher, { id: Date.now() }]); // Adding another teacher
     };
 
     const onSubmit = (data) => {
-        console.log(data);
         updateFormData(data);
         navigate("/pupil");
     };
